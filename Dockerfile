@@ -22,19 +22,3 @@ RUN pip install scikit-posthocs
 RUN pip install networkx
 
 ## added:
-
-# Set the working directory
-WORKDIR /app
-
-# Copy the repository files to the container
-COPY . /app
-
-# Set any necessary environment variables
-# For example, if you need to specify the GPU device, uncomment the following line
-ENV CUDA_VISIBLE_DEVICES=0
-
-# Install dependencies
-# RUN pip3 install -r requirements.txt
-
-# Specify the command to run your code
-CMD ["python3", "code1.py"]
