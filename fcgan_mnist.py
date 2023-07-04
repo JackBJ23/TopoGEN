@@ -92,10 +92,7 @@ for epoch in range(num_epochs):
         opt_gen.step()
 
         if batch_idx % 500 == 0:
-            print(
-                f"Epoch [{epoch}/{num_epochs}] Batch {batch_idx}/{len(loader)} \
-                      Loss D: {lossD:.4f}, loss G: {lossG:.4f}"
-            )
+            print("epoch", epoch)
 
             ### new:
             with torch.no_grad():
