@@ -32,5 +32,4 @@ ax.imshow(image)
 # Remove the axis labels
 ax.axis('off')
 
-# Show the plot
-plt.show()
+plt.savefig('output.png')
