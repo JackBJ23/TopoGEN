@@ -5,7 +5,6 @@ import torchvision
 import torchvision.datasets as datasets
 from torch.utils.data import DataLoader
 import torchvision.transforms as transforms
-from torch.utils.tensorboard import SummaryWriter  # to print to tensorboard
 import matplotlib.pyplot as plt
 import torchvision.transforms.functional as TF
 #other for PDiags:
@@ -20,3 +19,4 @@ a = a+1
 print("Result:", a)
 b = 2
 print("Number: ", b)
+
