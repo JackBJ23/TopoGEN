@@ -20,16 +20,16 @@ print("Result:", a)
 b = 2
 print("Number: ", b)
 
-# Generate random image data
 image = np.random.randint(0, 256, size=(64, 64, 3), dtype=np.uint8)
 
 # Create a figure and axes
 fig, ax = plt.subplots()
 
 # Display the image
-ax.imshow(image)
+plot = ax.imshow(image)
 
 # Remove the axis labels
 ax.axis('off')
 
-plt.savefig('output.png')
+# Show the plot
+plt.show()
