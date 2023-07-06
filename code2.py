@@ -22,9 +22,6 @@ import matplotlib.animation as animation
 from IPython.display import HTML
 
 #for dataset:
-!pip install Pillow
-!pip install PIL
-!pip install image
 import PIL.Image as Image
 import zipfile
 
@@ -36,7 +33,7 @@ random.seed(manualSeed)
 torch.manual_seed(manualSeed)
 torch.use_deterministic_algorithms(True) # Needed for reproducible results
 
-!mkdir data_faces && wget https://s3-us-west-1.amazonaws.com/udacity-dlnfd/datasets/celeba.zip
+mkdir data_faces && wget https://s3-us-west-1.amazonaws.com/udacity-dlnfd/datasets/celeba.zip
 
 with zipfile.ZipFile("celeba.zip","r") as zip_ref:
   zip_ref.extractall("data_faces/")
