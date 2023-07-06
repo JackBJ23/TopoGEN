@@ -26,10 +26,10 @@ image = np.random.randint(0, 256, size=(64, 64, 3), dtype=np.uint8)
 fig, ax = plt.subplots()
 
 # Display the image
-plot = ax.imshow(image)
+ax.imshow(image)
 
 # Remove the axis labels
 ax.axis('off')
 
-# Show the plot
-plt.show()
+# Save the plot as an image file
+plt.savefig('output.png')
