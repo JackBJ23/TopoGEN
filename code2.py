@@ -31,7 +31,7 @@ manualSeed = 999
 print("Random Seed: ", manualSeed)
 random.seed(manualSeed)
 torch.manual_seed(manualSeed)
-torch.use_deterministic_algorithms(True) # Needed for reproducible results
+#torch.use_deterministic_algorithms(True) # Needed for reproducible results
 
 import zipfile
 
