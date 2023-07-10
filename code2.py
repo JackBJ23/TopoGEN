@@ -18,7 +18,6 @@ import torchvision.transforms as transforms
 import torchvision.utils as vutils
 import numpy as np
 import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from IPython.display import HTML
@@ -120,7 +119,7 @@ plt.figure(figsize=(8,8))
 plt.axis("off")
 plt.title("Training Images")
 plt.imshow(np.transpose(make_grid(real_batch[0].to(device)[:64], padding=2, normalize=True).cpu(),(1,2,0)))
-plt.savefig('img1.png')
+plt.save('img1.png')
 
 print("Done")
 
