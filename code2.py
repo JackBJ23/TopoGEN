@@ -66,6 +66,17 @@ device = torch.device("cuda:0" if (torch.cuda.is_available() and ngpu > 0) else 
 
 import zipfile
 
+def show_tensor_images(image_tensor, num_images=25, size=(3, 64, 64)):
+    '''
+    Function for visualizing images: Given a tensor of images, number of images, and
+    size per image, plots and prints the images in an uniform grid.
+    '''
+    image_tensor = (image_tensor + 1) / 2
+    image_unflat = image_tensor.detach().cpu()
+    image_grid = make_grid(image_unflat[:num_images], nrow=5)
+    plt.imshow(image_grid.permute(1, 2, 0).squeeze())
+    plt.show()
+
 # Specify the path to the zip file
 zip_file_path = "celeba.zip"
 
@@ -97,4 +108,17 @@ transform = transforms.Compose(
 celeba_data = datasets.ImageFolder('./data_faces', transform=transform)
 dataloader = DataLoader(celeba_data, batch_size=batch_size, shuffle=True)
 
+batch, _ = next(iter(dataloader))
+#show(batch[0:16], renorm = True, nrow=4)
+
+# Plot some training images
+real_batch = next(iter(dataloader))
+plt.figure(figsize=(8,8))
+plt.axis("off")
+plt.title("Training Images")
+plt.imshow(np.transpose(make_grid(real_batch[0].to(device)[:64], padding=2, normalize=True).cpu(),(1,2,0)))
+
 print("Done")
+
+## block 4:
+
