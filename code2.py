@@ -118,7 +118,7 @@ print(real_batch[0].shape)
 plt.figure(figsize=(8,8))
 plt.axis("off")
 plt.title("Training Images")
-plt.savefig('/app/img1.png')
+plt.savefig('/app/shared_folder/imagen.png'')
 plt.imshow(np.transpose(make_grid(real_batch[0].to(device)[:64], padding=2, normalize=True).cpu(),(1,2,0)))
 
 print("Done")
