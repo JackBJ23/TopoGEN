@@ -33,10 +33,16 @@ random.seed(manualSeed)
 torch.manual_seed(manualSeed)
 torch.use_deterministic_algorithms(True) # Needed for reproducible results
 
-mkdir data_faces && wget https://s3-us-west-1.amazonaws.com/udacity-dlnfd/datasets/celeba.zip
+import zipfile
 
-with zipfile.ZipFile("celeba.zip","r") as zip_ref:
-  zip_ref.extractall("data_faces/")
+# Specify the path to the zip file
+zip_file_path = "celeba.zip"
+
+# Extract the contents of the zip file
+with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+    zip_ref.extractall("data_faces")
+
+## from original code:
 
 root = 'data_faces/img_align_celeba'
 img_list = os.listdir(root)
