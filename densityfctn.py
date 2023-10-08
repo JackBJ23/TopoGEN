@@ -54,7 +54,7 @@ def dist(point1, point2):
 
 def density(point_cloud, dgm, x, sigma):
   #sigma = 0.5 #0.5
-  scale = 0.002
+  scale = 0.0001
 
   #with torch.no_grad():
   #  for i in range(len(dgm['dgms'][0])-1): tot += (dgm['dgms'][0][i][1]) ** 3
@@ -63,7 +63,7 @@ def density(point_cloud, dgm, x, sigma):
   for i in range(len(dgm['dgms'][0])-1):
     p1, p2 = point_cloud[dgm['gens'][0][i][1]], point_cloud[dgm['gens'][0][i][2]] #pt (0,d) with d=dist(p1,p2) (euclidean dist)
     d = dist(p1, p2) #pt of pt cloud is (0,d)
-    density_x += (d)**3 * torch.exp(-((d-x)/sigma)**2)
+    density_x += (d)**4 * torch.exp(-((d-x)/sigma)**2)
 
   return density_x * scale
 
