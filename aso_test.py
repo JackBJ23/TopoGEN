@@ -635,6 +635,7 @@ n_epochs = 10
 n_showplots = 25
 n_latent = 10
 
+#seeds = [33, 405 ,30405 , 511, 2022, 111, 3044, 3044]
 seeds = [33, 405, 30405, 511, 2022, 11, 909, 44, 321, 45]
 
 n = len(seeds)
@@ -658,7 +659,14 @@ models0 = []
 models2 = []
 
 for seed in seeds: #20 no, 100 done, 15 done, 12 and 8 done (worse). seeds: int(w)
-  print("Seed:", seed)
+  print(w, "seed", seed)
+  '''
+  torch.manual_seed(seed)
+  model0 = VAE(n_latent)
+  model2 = pickle.loads(pickle.dumps(model0))
+  '''
+  ## added to have same parameters:
+  #seed = 45
   torch.manual_seed(seed)
   model0 = VAE(n_latent)
   torch.manual_seed(seed)
@@ -677,8 +685,10 @@ for seed in seeds: #20 no, 100 done, 15 done, 12 and 8 done (worse). seeds: int(
   best_val_loss = 99999
   epochs_without_improvement = 0.
   patience = 10
+
   epoch = 0
   kt = 1
+
   while kt==1 and epoch<10:
     epoch += 1
     for batch_idx, (data, _) in enumerate(train_loader):
@@ -732,12 +742,12 @@ for seed in seeds: #20 no, 100 done, 15 done, 12 and 8 done (worse). seeds: int(
             break
 
   # save bce losses:
-  bce_25_m0.append(losses[25])
+  bce_25_m0.append(losses[40])
   bce_50_m0.append(losses[50])
   bce_end_m0.append(losses[-1])
   models0.append(model0)
 
-  bce_25_m2.append(lossestopo[25])
+  bce_25_m2.append(lossestopo[40])
   bce_50_m2.append(lossestopo[50])
   bce_end_m2.append(lossestopo[-1])
   models2.append(model2)
@@ -800,8 +810,8 @@ min_eps = aso(my_model_scores, baseline_scores, seed=1234)
 
 print("at the end", min_eps)
 
-plt.plot(np.arange(n), my_model_scores, color='blue' )
-plt.plot(np.arange(n), baseline_scores, color='red' )
+plt.plot(np.arange(n), my_model_scores, color='blue')
+plt.plot(np.arange(n), baseline_scores, color='red')
 plt.show()
 
 '''
