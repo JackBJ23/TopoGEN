@@ -34,6 +34,7 @@ from torch.utils.data import DataLoader
 from torchvision.utils import make_grid
 from torchvision import datasets, transforms
 from IPython.display import Image as IPyImage  # Renamed to avoid conflict with PIL.Image
+import math
 
 # Device configuration
 device = "cuda" if torch.cuda.is_available() else "cpu"
