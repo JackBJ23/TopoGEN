@@ -640,7 +640,10 @@ for epoch in range(n_epochs):
           dgm = get_dgm(recon_batch.view(data.size(0), -1), 1)
           ## replace the next line by the topo-loss of choice (or combination of topo-losses):
           loss = loss_fctn2(recon_batch, data, mean, log_var, dgm, dgm2, 15., 15.)
-          #loss = loss_fctn5(recon_batch, data, mean, log_var, dgm, dgm2, 1., 1.)
+          # loss_fctn2(recon_batch, data, mean, log_var, dgm, dgm2, 5., 5.)
+          # loss_fctn3(recon_batch, data, mean, log_var, dgm, dgm2, 5., 5., 0.1)
+          # loss_fctn4(recon_batch, data, mean, log_var, dgm, dgm2, 10., 10., 0.1)
+          # loss_fctn5(recon_batch, data, mean, log_var, dgm, dgm2, 5., 5.)
           loss.backward()
           optimizer2.step()
 
