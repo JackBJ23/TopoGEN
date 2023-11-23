@@ -50,6 +50,8 @@ from sklearn import datasets
 from plotly import graph_objects as go
 import torchvision.datasets as datasets
 
+import math
+
 # Device configuration
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
