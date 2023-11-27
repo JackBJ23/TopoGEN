@@ -762,7 +762,7 @@ for epoch in range(1):
           plt.legend(loc='upper right')
           plt.show()
 
-        if batch_idx%5 == 0 and batch_idx>0: plot_latent(model0, model2)
+        if batch_idx%50 == 0 and batch_idx>0: plot_latent(model0, model2)
 
         #data = data.view(data.size(0), -1)
         if batch_idx % n_showplots != 0 or batch_idx==0:
@@ -832,4 +832,5 @@ for epoch in range(1):
     plt.ylabel("KLD loss")
     plt.legend(loc='upper right')
     plt.show()
+    plot_latent(model0, model2)
 
