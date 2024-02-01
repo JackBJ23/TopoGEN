@@ -659,7 +659,7 @@ for epoch in range(n_epochs):
 ## hyperparameters:
 n_epochs = 10
 n_showplots = 25
-n_latent = 5
+n_latent = 10
 
 ## create 2 models with same parameters:
 seed = 2211 #40456
